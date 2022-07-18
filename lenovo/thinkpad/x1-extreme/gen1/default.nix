@@ -9,12 +9,12 @@ let
 in
 {
   imports = [
-    ../../../common/cpu/intel
+    #../../../common/cpu/intel
     # might need nvidia module but we don't know the PCI ids:
     # https://github.com/NixOS/nixos-hardware/pull/274#discussion_r650483740
     #../../../common/gpu/nvidia.nix
-    ../../../common/pc/laptop/acpi_call.nix
-    ../../../common/pc/laptop/ssd
+    #../../../common/pc/laptop/acpi_call.nix
+    #../../../common/pc/laptop/ssd
   ];
 
   environment.systemPackages = [ nvidia-offload ];
