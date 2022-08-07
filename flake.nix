@@ -82,6 +82,7 @@
       lenovo-thinkpad-t440s = import ./lenovo/thinkpad/t440s;
       lenovo-thinkpad-t450s = import ./lenovo/thinkpad/t450s;
       lenovo-thinkpad-t460 = import ./lenovo/thinkpad/t460;
+      lenovo-thinkpad-t460p = import ./lenovo/thinkpad/t460p;
       lenovo-thinkpad-t460s = import ./lenovo/thinkpad/t460s;
       lenovo-thinkpad-t470s = import ./lenovo/thinkpad/t470s;
       lenovo-thinkpad-t480 = import ./lenovo/thinkpad/t480;
@@ -130,6 +131,7 @@
       tuxedo-infinitybook-v4 = import ./tuxedo/infinitybook/v4;
 
       common-cpu-amd = import ./common/cpu/amd;
+      common-cpu-amd-pstate = import ./common/cpu/amd/pstate.nix;
       common-cpu-intel = import ./common/cpu/intel;
       common-cpu-intel-cpu-only = import ./common/cpu/intel/cpu-only.nix;
       common-cpu-intel-kaby-lake = import ./common/cpu/intel/kaby-lake;
