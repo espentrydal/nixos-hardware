@@ -3,17 +3,16 @@
 {
   imports = [
     ../.
-    ../../../common/pc/laptop/ssd
     "${modulesPath}/hardware/network/broadcom-43xx.nix"
   ];
 
   boot = {
-    # extraModulePackages = with config.boot.kernelPackages; [ spi_pxa2xx_platform spi_pxa2xx_pci applespi ];
-    # kernelModules = [ "spi_pxa2xx_platform" "spi_pxa2xx_pci" "applespi" ];
-
+    initrd.kernelModules = [ "spi_pxa2xx_platform" "spi_pxa2xx_pci" "applespi" ];
     # Divides power consumption by two.
-    kernelParams = [ "acpi_osi=" ];
+    kernelParams = [ "acpi_osi=" "irqfixup" ];
   };
+
+  services.mbpfan.enable = false;
 
   powerManagement = {
     # Enable gradually increasing/decreasing CPU frequency, rather than using
@@ -27,8 +26,4 @@
     powerDownCommands = lib.mkBefore "${pkgs.kmod}/bin/rmmod brcmfmac";
   };
 
-  # USB subsystem wakes up MBP right after suspend unless we disable it.
-  # services.udev.extraRules = lib.mkDefault ''
-  #   SUBSYSTEM=="pci", KERNEL=="0000:00:14.0", ATTR{power/wakeup}="disabled"
-  #'';
 }
