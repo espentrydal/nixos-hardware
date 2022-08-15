@@ -9,7 +9,7 @@
   boot = {
     initrd.kernelModules = [ "spi_pxa2xx_platform" "spi_pxa2xx_pci" "applespi" ];
     # Divides power consumption by two.
-    kernelParams = [ "irqpoll" "acpi_osi=" ];
+    kernelParams = [ "irqfixup" ];
   };
 
   services.mbpfan.enable = false;
